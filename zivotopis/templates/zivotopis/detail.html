@@ -11,7 +11,7 @@
         <table class="table table-detail">
           <tbody>
             {% for field in form %}
-              <tr><td>{{ field.label }}</td><td>{{ field.value }}</td></tr>
+              <tr><td>{{ field.label }}</td><td>{{ field.value|urlize }}</td></tr>
             {% endfor %}
           </tbody>
         </table>
