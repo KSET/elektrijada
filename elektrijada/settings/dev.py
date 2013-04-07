@@ -4,7 +4,7 @@ from base import *
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 # Default : the opposite of DEBUG
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 
 # Debug Toolbar
 MIDDLEWARE_CLASSES += (
