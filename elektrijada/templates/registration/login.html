@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% load bootstrap %}
+
+{% block content %}
+  <div class="row">
+    <div class="span6">
+      <form class="form-horizontal well" action="" method="POST">
+        <fieldset>
+          <legend>Prijava korisnika</legend>
+          {% csrf_token %}
+          {{ form|bootstrap }}
+          <input type="hidden" name="next" value="{% if next %}{{ next|escape }}{% else %}/{% endif %}"/>
+          <div class="form-actions">
+            <input type="submit" class="btn btn-primary" value="Prijavi">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+.DS_Store
+*.db
+*.pyc
+*.pyo
+*.egg-info
+*.svn
+static/*
+media/*
+log/*
+elektrijada/settings/prod.py
