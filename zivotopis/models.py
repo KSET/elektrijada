@@ -13,6 +13,7 @@ class CurriculumVitae(models.Model):
     phone = models.CharField('broj mobitela', max_length=20, blank=True, null=True)
     college = models.CharField('fakultet', max_length=100)
     course = models.CharField('Smjer/Godina', max_length=100)
+    discipline = models.CharField('natjecateljska disciplina na Elektrijadi', max_length=100, blank=True, null=True)
 
     activities = models.TextField('aktivnosti na fakultetu', max_length=1000, blank=True, null=True)
     education = models.TextField('dodatno školovanje', max_length=1000, blank=True, null=True)
