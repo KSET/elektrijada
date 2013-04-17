@@ -16,5 +16,5 @@ table.table-detail > tbody > tr > td:first-child {
     text-align: right;
     /*white-space: nowrap;*/
     margin-right: 15px;
-    width: 140px;
+    width: 150px;
 }
