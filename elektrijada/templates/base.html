@@ -46,7 +46,10 @@
         <a class="brand" href="/">Elektrijada 2013</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li class="{% active request 'zivotopis' %}"><a href="{% url 'zivotopis:cv_add' %}">Životopisi</a></li>
+            <li class="{% active request 'unos' %}"><a href="{% url 'zivotopis:cv_add' %}">Životopis</a></li>
+            {% if user.is_authenticated %}
+              <li class="{% active request 'pregled' %}"><a href="{% url 'zivotopis:cv_list' %}">Pregled</a></li>
+            {% endif %}
           </ul>
           {% if user.is_authenticated %}
             <ul class="nav pull-right">
