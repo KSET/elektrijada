@@ -6,7 +6,7 @@
 
 {% block content %}
   <div class="row">
-    <div class="span10 offset1">
+    <div class="span12">
       <form class="well form-search">
         <input name="q" type="text" class="input-xlarge search-query" placeholder="Pretraga..." value="{{ query }}">
         <button type="submit" class="btn btn-primary"><i class="icon-search icon-white"></i></button>
@@ -22,14 +22,14 @@
         </thead>
         <tbody class="rowlink">
           {% paginate cvs %}
-            {% for cv in cvs %}
-              <tr>
-                <td><a class="rowlink" href="{% url 'zivotopis:cv_detail' cv_id=cv.id %}">{{ cv.first_name }}</a></td>
-                <td>{{ cv.last_name }}</td>
-                <td>{{ cv.college }}</td>
-                <td>{{ cv.course }}</td>
-              </tr>
-            {% endfor %}
+          {% for cv in cvs %}
+            <tr>
+              <td><a class="rowlink" href="{% url 'zivotopis:cv_detail' cv_id=cv.id %}">{{ cv.first_name }}</a></td>
+              <td>{{ cv.last_name }}</td>
+              <td>{{ cv.college }}</td>
+              <td>{{ cv.course }}</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
       <div class="pagination pagination-centered">
