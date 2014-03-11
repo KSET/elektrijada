@@ -8,7 +8,7 @@ class CurriculumVitae(models.Model):
     address_1 = models.CharField('adresa prebivališta', max_length=100, blank=True, null=True)
     address_2 = models.CharField('adresa boravišta', max_length=100, blank=True, null=True)
     email = models.EmailField('e-mail')
-    web = models.URLField('web', blank=True, null=True)
+    web = models.URLField('web (pref. LinkedIn)', blank=True, null=True)
     born = models.PositiveIntegerField('godina rođenja')
     phone = models.CharField('broj mobitela', max_length=20, blank=True, null=True)
     college = models.CharField('fakultet', max_length=100)
@@ -30,6 +30,8 @@ class CurriculumVitae(models.Model):
     expectations = models.TextField('očekivanja', max_length=1000, blank=True, null=True)
 
     created = models.DateTimeField('vrijeme kreiranja', blank=True, default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True)
+    # modified = models.DateTimeField(auto_now=True)
 
     @property
     def full_name(self):

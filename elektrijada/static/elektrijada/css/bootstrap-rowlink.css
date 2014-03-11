@@ -40,9 +40,9 @@ tr.rowlink td {
 tr.rowlink td.nolink {
   cursor: auto;
 }
-.table tbody tr.rowlink:hover td {
+/*.table tbody tr.rowlink:hover td {
   background-color: #cfcfcf;
-}
+}*/
 a.rowlink {
   color: inherit;
   font: inherit;

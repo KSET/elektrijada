@@ -13,7 +13,6 @@ def cv_add(request):
         msg = u'Životopis je uspješno spremljen.'
         messages.add_message(request, messages.SUCCESS, msg)
         return redirect('zivotopis:cv_add')
-
     return render(request, 'zivotopis/add.html', {
         'form': form,
     })
@@ -22,7 +21,6 @@ def cv_add(request):
 def cv_detail(request, cv_id):
     cv = get_object_or_404(CurriculumVitae, id=cv_id)
     form = CVForm(instance=cv)
-
     return render(request, 'zivotopis/detail.html', {
         'cv': cv,
         'form': form,
@@ -39,7 +37,10 @@ def search_cvs(query):
 @login_required
 def cv_list(request):
     query = request.GET.get('q', '')
+    cvs = []
+    for i in range(100):
+        cvs.extend(search_cvs(query))
     return render(request, 'zivotopis/list.html', {
-        'cvs': search_cvs(query),
+        'cvs': cvs,
         'query': query,
     })

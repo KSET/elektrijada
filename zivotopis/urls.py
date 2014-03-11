@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import patterns, url
 
 urlpatterns = patterns('zivotopis.views',
     url(r'^unos/$', 'cv_add', name='cv_add'),
