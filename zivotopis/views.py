@@ -5,6 +5,7 @@ from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.text import slugify
 from zivotopis import printer
 from zivotopis.forms import CVForm
 from zivotopis.models import CurriculumVitae
@@ -37,7 +38,8 @@ def cv_pdf(request, cv_id):
     if not cv.visible:
         raise PermissionDenied
     response = HttpResponse(printer.cv_pdf(cv), content_type='application/pdf')
-    response['Content-Disposition'] = 'filename=%s_%s.pdf' % (cv.last_name, cv.first_name)
+    filename = '%s_%s.pdf' % (slugify(cv.last_name).title(), slugify(cv.first_name).title())
+    response['Content-Disposition'] = 'filename=%s' % filename
     return response
 
 # !view
