@@ -8,5 +8,6 @@
 static/*
 media/*
 log/*
+data/*
 elektrijada/settings/prod.py
 todo.txt
