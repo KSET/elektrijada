@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from cStringIO import StringIO
 from django.conf import settings
+from django.template.defaultfilters import linebreaksbr
 from reportlab.lib import colors
 from reportlab.lib.units import cm
 from reportlab.lib.pagesizes import A4
@@ -69,7 +70,7 @@ def cv_pdf(cv):
 
     attrs = []
     for field in CVForm(instance=cv):
-        attrs.append((field.label, unicode(field.value())))
+        attrs.append((field.label, unicode(linebreaksbr(field.value()))))
     # Wrap into paragraphs
     style = ParagraphStyle(
         name='Table',
