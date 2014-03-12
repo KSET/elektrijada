@@ -4,10 +4,9 @@
 
 {% block content %}
   <div class="row">
-    <div class="span10">
-      <!-- CV detail -->
-      <div class="form-horizontal well">
-        <legend>{{ cv.full_name }}</legend>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="well">
+        <legend>{{ cv.full_name }} <span class="pull-right"><a href="{% url 'zivotopis:cv_pdf' cv_id=cv.id %}"><i class="glyphicon glyphicon-file"></i> pdf</a></span></legend>
         <table class="table table-detail">
           <tbody>
             {% for field in form %}

@@ -3,7 +3,7 @@ from base import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-# Default : the opposite of DEBUG
+# Default: opposite of DEBUG
 COMPRESS_ENABLED = False
 
 # Debug Toolbar
@@ -15,12 +15,3 @@ INSTALLED_APPS += (
     'debug_toolbar',
 )
 DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
-
-# Verbose show warning
-# http://docs.python.org/2/library/warnings.html#warnings.showwarning
-import warnings
-import traceback
-def custom_showwarning(message, category, filename, lineno, **kwargs):
-    warnings.formatwarning(message, category, filename, lineno)
-    # traceback.print_exc()
-warnings.showwarning = custom_showwarning

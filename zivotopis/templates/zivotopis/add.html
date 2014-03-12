@@ -4,31 +4,22 @@
 {% block title %}{{ block.super }} - Životopis{% endblock title %}
 
 {% block content %}
-  {# <!-- Flash message --> #}
-  {% if messages %}
-    <div class="row">
-      <div class="span8">
-        {% for msg in messages %}
-          <div class="alert {% if msg.tags %}alert-{{ msg.tags }}{% endif %}">
-            <a class="close" data-dismiss="alert">×</a>{{ msg }}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
   <div class="row">
-    <div class="span8">
-      <!-- CV form -->
-      <form id="cv_form" class="form-horizontal well" action="" method="POST">
-        <fieldset class="bold-required">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="well">
+        <form id="cv_form" class="form-horizontal" action="" method="POST">
           <legend>Unesite svoj životopis</legend>
-          {% csrf_token %}
-          {{ form|bootstrap }}
-          <div class="form-actions">
-            <input type="submit" class="btn btn-primary" value="Spremi">
+          <fieldset class="bold-required">
+            {% csrf_token %}
+            {{ form|bootstrap_horizontal:'col-md-3' }}
+          </fieldset>
+          <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+              <button type="submit" class="btn btn-primary">Spremi</button>
+            </div>
           </div>
-        </fieldset>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 {% endblock %}

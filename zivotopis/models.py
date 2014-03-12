@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.utils import timezone
 
 class CurriculumVitae(models.Model):
     first_name = models.CharField('ime', max_length=30)
@@ -8,7 +7,7 @@ class CurriculumVitae(models.Model):
     address_1 = models.CharField('adresa prebivališta', max_length=100, blank=True, null=True)
     address_2 = models.CharField('adresa boravišta', max_length=100, blank=True, null=True)
     email = models.EmailField('e-mail')
-    web = models.URLField('web', blank=True, null=True)
+    web = models.URLField('web (pref. LinkedIn)', blank=True, null=True)
     born = models.PositiveIntegerField('godina rođenja')
     phone = models.CharField('broj mobitela', max_length=20, blank=True, null=True)
     college = models.CharField('fakultet', max_length=100)
@@ -29,7 +28,8 @@ class CurriculumVitae(models.Model):
     preferences = models.TextField('preferirani posao', max_length=1000, blank=True, null=True)
     expectations = models.TextField('očekivanja', max_length=1000, blank=True, null=True)
 
-    created = models.DateTimeField('vrijeme kreiranja', blank=True, default=timezone.now)
+    created = models.DateTimeField('vrijeme kreiranja', auto_now_add=True)
+    visible = models.BooleanField('vidljivost', default=True)
 
     @property
     def full_name(self):
