@@ -19,7 +19,6 @@ function upgrade_pagination() {
 
 $(document).ready(function() {
     upgrade_pagination();
-    $('tbody.rowlink').rowlink();
     $('[data-input="clear"]').click(function() {
         $(this).closest('div.input-group').find('input[type="text"]').val('');
     });

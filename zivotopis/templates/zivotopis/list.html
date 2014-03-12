@@ -27,23 +27,25 @@
 
   <div class="row">
     <div class="col-md-12">
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered table-striped">
         <thead>
           <tr>
             <th>Prezime</th>
             <th>Ime</th>
             <th>Fakultet</th>
             <th>Smjer/Godina</th>
+            <th>Izvezi</th>
           </tr>
         </thead>
         <tbody class="rowlink">
           {% paginate cvs %}
           {% for cv in cvs %}
             <tr>
-              <td><a class="rowlink" href="{% url 'zivotopis:cv_detail' cv_id=cv.id %}">{{ cv.last_name }}</a></td>
+              <td><a href="{% url 'zivotopis:cv_detail' cv_id=cv.id %}" target="_blank">{{ cv.last_name }}</a></td>
               <td>{{ cv.first_name }}</td>
               <td>{{ cv.college }}</td>
               <td>{{ cv.course }}</td>
+              <td><a href="{% url 'zivotopis:cv_pdf' cv_id=cv.id %}" target="_blank"><i class="glyphicon glyphicon-file"></i> pdf</a></td>
             </tr>
           {% endfor %}
         </tbody>
