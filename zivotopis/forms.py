@@ -10,4 +10,4 @@ class CVForm(forms.ModelForm):
 
     class Meta:
         model = CurriculumVitae
-        exclude = ('created',)
+        exclude = ('created', 'visible')

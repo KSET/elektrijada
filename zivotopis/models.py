@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.utils import timezone
 
 class CurriculumVitae(models.Model):
     first_name = models.CharField('ime', max_length=30)
@@ -29,9 +28,8 @@ class CurriculumVitae(models.Model):
     preferences = models.TextField('preferirani posao', max_length=1000, blank=True, null=True)
     expectations = models.TextField('očekivanja', max_length=1000, blank=True, null=True)
 
-    created = models.DateTimeField('vrijeme kreiranja', blank=True, default=timezone.now)
-    created = models.DateTimeField(auto_now_add=True)
-    # modified = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField('vrijeme kreiranja', auto_now_add=True)
+    visible = models.BooleanField('vidljivost', default=True)
 
     @property
     def full_name(self):
