@@ -8,7 +8,7 @@
     <div class="col-md-10 col-md-offset-1">
       <div class="well">
         <form id="cv_form" class="form-horizontal" action="" method="POST">
-          <legend>Unesite svoj životopis</legend>
+          <legend>Unesite svoj životopis <span class="pull-right"><a href="{{ STATIC_URL }}elektrijada/pdf/Primjeric_Primjerko.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i> Primjer</a></span></legend>
           <fieldset class="bold-required">
             {% csrf_token %}
             {{ form|bootstrap_horizontal:'col-md-3' }}
