@@ -8,7 +8,6 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.pdfgen.canvas import Canvas
 from reportlab.platypus import Table, TableStyle, Paragraph, SimpleDocTemplate
 from reportlab.pdfgen import canvas
 from zivotopis.forms import CVForm
@@ -55,17 +54,16 @@ def cv_pdf(cv):
     NumberedCanvas(output)
 
     table_title = Table([(cv.full_name, u'Elektrijada - Životopis'), ('', '')],  repeatRows=0,
-        style=TableStyle([
-            ('LINEBELOW', (0,1), (-1,-1), 1, colors.lightgrey),
-            ('ALIGN', (0,0), (-1,-1), 'LEFT'),
-            ('VALIGN', (0,0), (-1,-1), 'BOTTOM'),
-            ('FONT', (0,0), (-1,-1), 'OpenSans'),
-            ('FONTSIZE', (0,0), (-1,-1), 16),
-            ('FONTSIZE', (1,0), (-1,-1), 13),
-        ]),
-        colWidths=[11.0*cm, 5.0*cm],
-        rowHeights=[0.5*cm, 0.5*cm],
-    )
+                        style=TableStyle([
+                            ('LINEBELOW', (0, 1), (-1, -1), 1, colors.lightgrey),
+                            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                            ('VALIGN', (0, 0), (-1, -1), 'BOTTOM'),
+                            ('FONT', (0, 0), (-1, -1), 'OpenSans'),
+                            ('FONTSIZE', (0, 0), (-1, -1), 16),
+                            ('FONTSIZE', (1, 0), (-1, -1), 13),
+                        ]),
+                        colWidths=[11.0*cm, 5.0*cm],
+                        rowHeights=[0.5*cm, 0.5*cm])
     elements.append(table_title)
 
     attrs = []
@@ -82,13 +80,12 @@ def cv_pdf(cv):
         para_data.append([Paragraph(col, style) for col in row])
 
     table = Table(para_data,  repeatRows=0,
-        style=TableStyle([
-            ('LINEBELOW', (0,0), (-1,-1), 1, colors.lightgrey),
-            ('ALIGN', (0,0), (-1,-1), 'LEFT'),
-            ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-        ]),
-        colWidths=[5.00*cm, 11*cm],
-    )
+                  style=TableStyle([
+                      ('LINEBELOW', (0, 0), (-1, -1), 1, colors.lightgrey),
+                      ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                  ]),
+                  colWidths=[5.00*cm, 11*cm])
     elements.append(table)
 
     doc.build(elements, canvasmaker=NumberedCanvas)

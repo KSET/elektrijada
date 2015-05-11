@@ -10,6 +10,7 @@ from zivotopis import printer
 from zivotopis.forms import CVForm
 from zivotopis.models import CurriculumVitae
 
+
 def cv_add(request):
     form = CVForm(request.POST or None)
     if form.is_valid():
@@ -20,6 +21,7 @@ def cv_add(request):
     return render(request, 'zivotopis/add.html', {
         'form': form,
     })
+
 
 @login_required
 def cv_detail(request, cv_id):
@@ -32,6 +34,7 @@ def cv_detail(request, cv_id):
         'form': form,
     })
 
+
 @login_required
 def cv_pdf(request, cv_id):
     cv = get_object_or_404(CurriculumVitae, id=cv_id)
@@ -42,13 +45,17 @@ def cv_pdf(request, cv_id):
     response['Content-Disposition'] = 'filename=%s' % filename
     return response
 
+
 # !view
 def search_cvs(query):
     qs = CurriculumVitae.objects.filter(visible=True)
     for q in query.split(' '):
-        if not q: continue
-        qs = qs.filter(Q(first_name__icontains=q) | Q(last_name__icontains=q) | Q(college__icontains=q) | Q(course__icontains=q))
+        if not q:
+            continue
+        qs = qs.filter(Q(first_name__icontains=q) | Q(last_name__icontains=q) | Q(college__icontains=q) |
+                       Q(course__icontains=q))
     return qs
+
 
 @login_required
 def cv_list(request):

@@ -7,7 +7,8 @@ from filebrowser.sites import site
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^zivotopisi/', include('zivotopis.urls', namespace='zivotopis', app_name='zivotopis')),
 
     url(r'^grappelli/', include('grappelli.urls')),
@@ -16,7 +17,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-urlpatterns += patterns('',
+urlpatterns += patterns(
+    '',
     url(r'^korisnici/prijava/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^korisnici/odjava/$', 'django.contrib.auth.views.logout_then_login', name='logout'),
 )

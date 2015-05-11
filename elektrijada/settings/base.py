@@ -88,7 +88,7 @@ STATIC_URL = '/static/'
 
 SITE_ID = 1
 
-SESSION_COOKIE_AGE = 1209600 # two weeks in seconds
+SESSION_COOKIE_AGE = 1209600    # two weeks in seconds
 
 # Every RequestContext will contain a variable request, required for admin dashboard
 TEMPLATE_CONTEXT_PROCESSORS += (
@@ -123,26 +123,27 @@ FILEBROWSER_ADMIN_VERSIONS = ['thumbnail', 'small', 'medium', 'big', 'large']
 FILEBROWSER_ADMIN_THUMBNAIL = 'admin_thumbnail'
 
 FILEBROWSER_SELECT_FORMATS = {
-    'File': ['Folder','Document',],
-    'Image': ['Folder','Image',],
-    'Media': ['Video','Sound'],
+    'File': ['Folder', 'Document'],
+    'Image': ['Folder', 'Image'],
+    'Media': ['Video', 'Sound'],
     'Document': ['Document'],
     # for TinyMCE we can also define lower-case items
     'image': ['Image'],
-    'file': ['Folder','Image','Document',],
+    'file': ['Folder', 'Image', 'Document'],
 }
 
 # tinymce settings, add/remove buttons and so on
 TINYMCE_DEFAULT_CONFIG = {
-    'theme': "advanced",
-    'theme_advanced_toolbar_location' : "top",
-    'theme_advanced_resizing' : True,
-    'plugins' : 'table,contextmenu,paste,autoresize,media,lists,style',
-    # 'height' : 600,
-    # 'width' : 800,
-    'theme_advanced_buttons1': "formatselect,style,bold,italic,underline,separator,bullist,separator,outdent,indent,separator,undo,redo",
-    'theme_advanced_buttons2': "cleanup,code,separator,lists,pasteword,table,contextmenu,media,style,image,link",
-    # 'theme_advanced_buttons3': "",
+    'theme': 'advanced',
+    'theme_advanced_toolbar_location': 'top',
+    'theme_advanced_resizing': True,
+    'plugins': 'table,contextmenu,paste,autoresize,media,lists,style',
+    # 'height': 600,
+    # 'width': 800,
+    'theme_advanced_buttons1': ('formatselect,style,bold,italic,underline,separator,bullist,separator,outdent,'
+                                'indent,separator,undo,redo'),
+    'theme_advanced_buttons2': 'cleanup,code,separator,lists,pasteword,table,contextmenu,media,style,image,link',
+    # 'theme_advanced_buttons3': '',
 }
 
 LOGIN_URL = reverse_lazy('login')
