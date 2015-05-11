@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
+
 class CurriculumVitae(models.Model):
     first_name = models.CharField('ime', max_length=30)
     last_name = models.CharField('prezime', max_length=30)
